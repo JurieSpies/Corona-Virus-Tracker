@@ -1,6 +1,8 @@
 // PACKAGES
 import React, {Component} from 'react';
 import {View,TouchableOpacity, Alert} from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 // STYLE
 import styles from './Home.style';
 // SVG
@@ -18,6 +20,7 @@ class Home extends Component {
   }
 
   render() {
+    const { navigation } = this.props
     return (
       <View style={{flex: 1, backgroundColor: '#000'}}>
 
@@ -43,8 +46,8 @@ class Home extends Component {
         number="63"
         />
       
-      <NavigationButton title="MAP" onPress={()=>''}/>
-      <NavigationButton title="COUNTRIES" onPress={()=>''}/>
+      <NavigationButton title="MAP" onPress={()=>  navigation.navigate('Map')}/>
+      <NavigationButton title="COUNTRIES" onPress={()=>  navigation.navigate('CountryStats')}/>
       </View>
     );
   }
