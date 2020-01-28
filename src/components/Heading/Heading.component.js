@@ -1,32 +1,37 @@
 import React, {Component} from 'react';
 import {ImageBackground, View, Text, TouchableOpacity} from 'react-native';
-import styles from './Heading.style';
-import Reload from './SVG/Reload';
 
-class ClassName extends Component {
+
+class HeadingText extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    const {title} = this.props;
+    const {title,icon,backArrow} = this.props;
     return (
-      <View style={{flexDirection: 'row'}}>
-        <Text>{title}</Text>
-        <Text>Icon</Text>
-      </View>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around',borderBottomColor:'#CDAE70',borderBottomWidth:1,backgroundColor:'#272727'}}>
+          <View style={{ }}>
+            {backArrow}
+          </View>
+          <View>
+            <Text style={{fontSize:48,color:'#CDAE70'}}>{title}</Text>
+          </View>
+          <View style={{ }}>
+            {icon}
+          </View>
+      </View> 
     );
   }
 }
 
-import propTypes from 'prop-types';
 
 /* Prop Types */
-ClassName.propTypes = {
-  myConstantHERE: propTypes.object.isRequired,
+HeadingText.propTypes = {
+  // : propTypes.object.isRequired,
 };
 
-ClassName.defaultProps = {};
+// HeadingText.defaultProps = {};
 
-export default ClassName;
+export default HeadingText;
