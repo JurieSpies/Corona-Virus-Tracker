@@ -1,0 +1,16 @@
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+app.ipa
+.jest/cache/**
+yarn-error.log
+.env
+coverage/**/*
+src/generated
+schema.graphql
+android/app/build
+.gradle
