@@ -30,11 +30,10 @@ class Home extends Component {
       .then(res => {
         const getAll = res.data.features[0].attributes;
         console.log('deaths =',getAll)
-        this.setState({ deaths: getAll.deaths})
-        this.setState({ confirmed: getAll.confirmed})
-        this.setState({ recovered: getAll.recovered})
+        this.setState({ confirmed: getAll.confirmed, recovered: getAll.recovered,deaths: getAll.deaths})
     })
   }
+
 
 
 
