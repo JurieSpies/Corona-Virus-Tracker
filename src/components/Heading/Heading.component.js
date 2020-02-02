@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ImageBackground, View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import Reload from '../../SVG/Reload'
 import BackArrow from '../../SVG/BackArrow'
+import { withNavigation } from 'react-navigation';
 
 
 const screenWidth = Dimensions.get('window').width
@@ -13,13 +14,16 @@ class HeadingText extends Component {
 
 
   render() {
-    const { title, refreshIcon, backArrow, fontSize } = this.props;
+    const { title, refreshIcon, backArrow, fontSize,navigation } = this.props;
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomColor: '#CDAE70', borderBottomWidth: 1, backgroundColor: '#272727', justifyContent: 'space-evenly', height: 80 }}>
 
         <View style={{}}>
           {backArrow &&
-            <TouchableOpacity style={{}}>
+            <TouchableOpacity
+            style={{}}
+            onPress={() => navigation.goBack()}
+            >
               <BackArrow />
             </TouchableOpacity>
           }
@@ -47,7 +51,7 @@ class HeadingText extends Component {
           </TouchableOpacity>
         }
       </View>
-      </View > 
+      </View >
     );
   }
 }
@@ -60,4 +64,4 @@ HeadingText.propTypes = {
 
 // HeadingText.defaultProps = {};
 
-export default HeadingText;
+export default withNavigation(HeadingText);
