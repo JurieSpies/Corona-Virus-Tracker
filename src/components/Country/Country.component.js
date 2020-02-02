@@ -13,11 +13,11 @@ class Country extends Component {
   }
 
   render() {
-    const { name } = this.props
+    const { name,amount } = this.props
     return (
       <View style={{ flexDirection: 'row', width: '100%', paddingHorizontal: 10 }}>
         <Text style={{ color: 'grey', width: '50%', marginVertical: 15 }}>{name}</Text>
-        <Text style={{ color: '#fff', marginVertical: 15 }}>8</Text>
+        <Text style={{ color: '#fff', marginVertical: 15 }}>{amount}</Text>
       </View>
 
     );
