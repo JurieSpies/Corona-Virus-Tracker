@@ -19,7 +19,7 @@ class NavigationButton extends Component {
           style={{ backgroundColor: '#CDAE70', borderRadius: 5, borderColor: '#fff', borderWidth: 1, margin: 15, marginBottom: 0, }}
           onPress={onPress}
         >
-          <Text style={{ fontSize: 64, color: '#fff', alignSelf: 'center' }}>{title}</Text>
+          <Text style={{ fontSize: 48, color: '#fff', alignSelf: 'center' }}>{title}</Text>
         </TouchableOpacity>
       </>
     );

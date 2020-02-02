@@ -1,27 +1,53 @@
-import React, {Component} from 'react';
-import {ImageBackground, View, Text, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { ImageBackground, View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import Reload from '../../SVG/Reload'
+import BackArrow from '../../SVG/BackArrow'
 
 
+const screenWidth = Dimensions.get('window').width
 class HeadingText extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
+
   render() {
-    const {title,icon,backArrow} = this.props;
+    const { title, refreshIcon, backArrow, fontSize } = this.props;
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around',borderBottomColor:'#CDAE70',borderBottomWidth:1,backgroundColor:'#272727'}}>
-          <View style={{ }}>
-            {backArrow}
-          </View>
-          <View>
-            <Text style={{fontSize:48,color:'#CDAE70'}}>{title}</Text>
-          </View>
-          <View style={{ }}>
-            {icon}
-          </View>
-      </View> 
+      <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomColor: '#CDAE70', borderBottomWidth: 1, backgroundColor: '#272727', justifyContent: 'space-evenly', height: 80 }}>
+
+        <View style={{}}>
+          {backArrow &&
+            <TouchableOpacity style={{}}>
+              <BackArrow />
+            </TouchableOpacity>
+          }
+        </View>
+
+        <View style={{}}>
+          <Text
+            style={[{
+              color: '#CDAE70',
+              textAlign: 'center',
+              marginBottom: 15,
+              paddingHorizontal: 30,
+            },
+              {fontSize}
+            ]}
+          >
+              {title}
+          </Text>
+      </View>
+
+      <View style={{}}>
+        {refreshIcon &&
+          <TouchableOpacity style={{}}>
+            <Reload />
+          </TouchableOpacity>
+        }
+      </View>
+      </View > 
     );
   }
 }

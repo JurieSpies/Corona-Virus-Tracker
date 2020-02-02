@@ -20,7 +20,7 @@ class Map extends Component {
 
 /* Prop Types */
 Map.propTypes = {
-  // myConstantHERE : propTypes.object.isRequired,
+
 };
 
 Map.defaultProps = {};
