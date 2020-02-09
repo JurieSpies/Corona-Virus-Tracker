@@ -14,43 +14,47 @@ class HeadingText extends Component {
 
 
   render() {
-    const { title, refreshIcon, backArrow, fontSize,navigation } = this.props;
+    const { title, refreshIcon, backArrow, fontSize, navigation,refreshFunc } = this.props;
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomColor: '#CDAE70', borderBottomWidth: 1, backgroundColor: '#272727', justifyContent: 'space-evenly', height: 80 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent:'center' , borderBottomColor: '#CDAE70', borderBottomWidth: 1, backgroundColor: '#272727', height: 80 }}>
 
-        <View style={{}}>
+        <View  style={{flex:1,height: 80, alignItems: 'center', justifyContent: 'center',}}>
           {backArrow &&
             <TouchableOpacity
-            style={{}}
-            onPress={() => navigation.goBack()}
+              style={{}}
+              onPress={() => navigation.goBack()}
             >
               <BackArrow />
             </TouchableOpacity>
           }
         </View>
 
-        <View style={{}}>
+        <View style={{flex:5,height: 80}}>
           <Text
             style={[{
               color: '#CDAE70',
               textAlign: 'center',
-              marginBottom: 15,
+              marginVertical: 15,
               paddingHorizontal: 30,
             },
-              {fontSize}
+            { fontSize }
             ]}
           >
-              {title}
+            {title}
           </Text>
-      </View>
+        </View>
 
-      <View style={{}}>
-        {refreshIcon &&
-          <TouchableOpacity style={{}}>
-            <Reload />
-          </TouchableOpacity>
-        }
-      </View>
+        <View style={{flex:1,height: 80, alignItems: 'center', justifyContent: 'center',}}>
+          {refreshIcon &&
+            <TouchableOpacity
+              style={{}}
+              onPress={refreshFunc}
+              >
+              <Reload />
+            </TouchableOpacity>
+          }
+        </View>
+
       </View >
     );
   }

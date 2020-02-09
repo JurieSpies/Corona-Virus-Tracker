@@ -11,7 +11,7 @@ class Map extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#f0f'}}>
+      <View style={{flex: 1, backgroundColor: 'grey'}}>
         <Text>Map</Text>
       </View>
     );

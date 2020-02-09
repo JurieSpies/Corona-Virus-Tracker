@@ -14,7 +14,7 @@ class LastUpdated extends Component {
   render() {
     const { date } = this.props
     return (
-      <View style={{}}>
+      <View style={{marginVertical:30}}>
         <Text style={{ color: 'grey', alignSelf: 'center', }}>Last updated: {date}</Text>
       </View>
 

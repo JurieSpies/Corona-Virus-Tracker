@@ -16,7 +16,7 @@ render() {
   return (
 <>
   <View style={{ backgroundColor: '#272727', height:140,margin:15,marginBottom:0,borderWidth:1,borderColor:'#CDAE70'}}>
-    <Text style={{color:'#CDAE70', alignSelf: 'center',fontSize:24}}>{title}</Text>
+    <Text style={{color:'orange', alignSelf: 'center',fontSize:24}}>{title}</Text>
     <Text style={{color:'#CDAE70', alignSelf: 'center',fontSize:72}}>{number}</Text>
   </View>
 </>
