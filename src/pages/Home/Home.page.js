@@ -58,7 +58,7 @@ class Home extends Component {
           <Heading
             title='Coronavirus'
             refreshIcon
-            fontSize={36}
+            fontSize={32}
             refreshFunc={() => { this.getQuery(), this.getLastEditDate() }}
           />
           <SkeletonContent
