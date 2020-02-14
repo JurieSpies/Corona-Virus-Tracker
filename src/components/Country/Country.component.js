@@ -23,14 +23,15 @@ class Country extends Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    color: 'grey',
-    width: '50%',
-    marginVertical: 15
-  },
+  flexDirection: 'row',
+  width: '100%',
+  paddingHorizontal: 10
+},
   name: {
     color: 'grey',
     width: '50%',
-    marginVertical: 15
+    marginVertical: 15,
+    marginHorizontal:10,
   },
   amount: {
     color: '#fff',
