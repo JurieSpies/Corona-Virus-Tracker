@@ -12,7 +12,6 @@ import LastUpdated from '../../components/LastUpdated/LastUpdated'
 import axios from 'axios';
 import moment from 'moment'
 
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -75,30 +74,28 @@ class Home extends Component {
               key={'Death'}
               title="Total Deaths"
               number={deaths}
-              style={{ backgroundColor: '#272727', height: 140, width: 400, alignSelf: 'center', marginTop: 15, borderWidth: 1, borderColor: '#CDAE70' }}
+              style={styles.totalsLoading}
             />
             <Total
               key={'confirmed'}
               title="Total Confirmed"
               number={confirmed}
-              style={{ backgroundColor: '#272727', height: 140, width: 400, alignSelf: 'center', marginTop: 15, borderWidth: 1, borderColor: '#CDAE70' }}
+              style={styles.totalsLoading}
             />
             <Total
               key={'Recovered'}
               title="Total Recovered"
               number={recovered}
-              style={{ backgroundColor: '#272727', height: 140, width: 400, alignSelf: 'center', marginTop: 15, borderWidth: 1, borderColor: '#CDAE70' }}
+              style={styles.totalsLoading}
             />
           </SkeletonContent>
-
-          {/* MAPED REMOVED FOR NOW */}
+          {/* MAPED REMOVED FOR FIRST VERSION OF APP RELEASE */}
           {/* <NavigationButton title="MAP" onPress={() => navigation.navigate('Map')} /> */}
           <NavigationButton title="COUNTRIES" onPress={() => navigation.navigate('CountryStats')} />
           <>
             <LastUpdated date={lastUpdated} />
           </>
         </ScrollView>
-
       </View>
     );
   }
