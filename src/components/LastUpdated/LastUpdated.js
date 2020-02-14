@@ -1,8 +1,6 @@
 
-
 import React, { Component } from 'react';
-import { ImageBackground, View, Text, TouchableOpacity, } from 'react-native';
-
+import { View, Text, StyleSheet } from 'react-native';
 
 class LastUpdated extends Component {
   constructor(props) {
@@ -14,21 +12,23 @@ class LastUpdated extends Component {
   render() {
     const { date } = this.props
     return (
-      <View style={{marginVertical:30}}>
-        <Text style={{ color: 'grey', alignSelf: 'center', }}>Last updated: {date}</Text>
+      <View style={styles.mainContainer}>
+        <Text style={styles.lastUpdateText}>Last updated: {date}</Text>
       </View>
 
     );
   }
 }
 
-/* Prop Types */
-LastUpdated.propTypes = {
-  //  : propTypes.object.isRequired,
-};
+const styles = StyleSheet.create({
+  mainContainer: {
+    marginVertical: 30
+  },
+  lastUpdateText: {
+    color: 'grey',
+    alignSelf: 'center',
+  },
+});
 
-LastUpdated.defaultProps = {
-
-};
 
 export default LastUpdated;

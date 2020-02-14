@@ -63,7 +63,8 @@ class Home extends Component {
           />
           <SkeletonContent
             containerStyle={{ flex: 1 }}
-            isLoading={isLoading}
+            isLoading={true}
+            isLoading={false}
             animationDirection='diagonalDownRight'
             duration={800}
             boneColor="#121212"
