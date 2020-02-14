@@ -16,7 +16,7 @@ class HeadingText extends Component {
   render() {
     const { title, refreshIcon, backArrow, fontSize, navigation,refreshFunc } = this.props;
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent:'center' , borderBottomColor: '#CDAE70', borderBottomWidth: 1, backgroundColor: '#272727', height: 80 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent:'center' , borderBottomColor: '#CDAE70', borderBottomWidth: 1, backgroundColor: '#272727', height: 80,paddingBottom:10, }}>
 
         <View  style={{flex:1,height: 80, alignItems: 'center', justifyContent: 'center',}}>
           {backArrow &&

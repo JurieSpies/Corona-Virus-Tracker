@@ -21,11 +21,13 @@ class Home extends Component {
       confirmed: '',
       recovered: '',
       isLoading: true,
+      lastUpdated: ''
     };
   }
 
   componentDidMount() {
     this.getQuery();
+    this.getLastEditDate();
   }
 
   getQuery = () => {
@@ -33,15 +35,23 @@ class Home extends Component {
     axios.get(`https://services1.arcgis.com/0MSEUqKaxRlEPj5g/ArcGIS/rest/services/ncov_cases/FeatureServer/2/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=Deaths%2C+Confirmed%2C+Recovered%2C+Country_Region&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=%5B%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22Recovered%22%2C%22outStatisticFieldName%22%3A%22recovered%22%7D%2C%0D%0A%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22Confirmed%22%2C%22outStatisticFieldName%22%3A%22confirmed%22%7D%2C%0D%0A%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22Deaths%22%2C%22outStatisticFieldName%22%3A%22deaths%22%7D%5D&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=`)
       .then(res => {
         const getAll = res.data.features[0].attributes;
-        console.log('deaths =', getAll)
+        // console.log('deaths =', getAll)
         this.setState({ confirmed: getAll.confirmed, recovered: getAll.recovered, deaths: getAll.deaths, isLoading: false })
+      })
+  }
+  getLastEditDate = () => {
+    this.setState({ isLoading: true })
+    axios.get(`https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases/FeatureServer/2?f=json`)
+      .then(res => {
+        const getDateandTimeUpdated = res.data.editingInfo.lastEditDate;
+        const dateTimeFormated = moment(getDateandTimeUpdated).format('MMM DD YYYY hh:mm')
+        this.setState({ lastUpdated: dateTimeFormated })
       })
   }
 
   render() {
     const { navigation } = this.props
-    const { deaths, confirmed, recovered, isLoading } = this.state
-
+    const { deaths, confirmed, recovered, isLoading, lastUpdated } = this.state
     return (
       <View style={{ flex: 1, backgroundColor: '#000' }}>
         <StatusBar hidden />
@@ -50,7 +60,7 @@ class Home extends Component {
             title='Coronavirus'
             refreshIcon
             fontSize={36}
-            refreshFunc={() => this.getQuery()}
+            refreshFunc={() => { this.getQuery(), this.getLastEditDate() }}
           />
           <SkeletonContent
             containerStyle={{ flex: 1 }}
@@ -85,7 +95,7 @@ class Home extends Component {
           {/* <NavigationButton title="MAP" onPress={() => navigation.navigate('Map')} /> */}
           <NavigationButton title="COUNTRIES" onPress={() => navigation.navigate('CountryStats')} />
           <>
-            <LastUpdated date={moment().format('YYYY-MMM-DD HH:mm')} />
+            <LastUpdated date={lastUpdated} />
           </>
         </ScrollView>
 
