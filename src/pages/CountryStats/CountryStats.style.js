@@ -1,8 +1,15 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
+  mainContainer: {
+    flex: 1, backgroundColor: '#000',
+    justifyContent: 'center',
+  },
+  goldLine: {
+    height: 2,
+    backgroundColor: '#CDAE70',
+    width: '90%',
+    alignSelf: 'center',
   },
 });
 export default styles;

@@ -1,5 +1,3 @@
-// import propTypes from 'prop-types';
-
 // PACKAGES
 import React, { Component } from 'react';
 import { ImageBackground, View, Text, ScrollView, ActivityIndicator, } from 'react-native';
@@ -49,7 +47,7 @@ class CountryStats extends Component {
   render() {
     const { country, isLoading,lastUpdated } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: '#000', justifyContent: 'center', }}>
+      <View style={styles.mainContainer}>
         {isLoading ? (<ActivityIndicator style={{ alignSelf: 'center', }} />) :
           <>
             <Heading
@@ -66,7 +64,7 @@ class CountryStats extends Component {
                     name={specific.attributes.Country_Region}
                     amount={specific.attributes.confirmed}
                   />
-                  <View style={{ height: 2, backgroundColor: '#CDAE70', width: '90%', alignSelf: 'center', }} />
+                  <View style={styles.goldLine} />
                 </View>
               )}
               <View style={{ height: 50 }} />
