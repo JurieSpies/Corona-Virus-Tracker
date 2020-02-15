@@ -36,6 +36,8 @@ target 'corona' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
   target 'coronaTests' do
     inherit! :search_paths
     # Pods for testing
