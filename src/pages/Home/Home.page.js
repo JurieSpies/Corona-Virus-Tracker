@@ -89,8 +89,7 @@ class Home extends Component {
               style={styles.totalsLoading}
             />
           </SkeletonContent>
-          {/* MAPED REMOVED FOR FIRST VERSION OF APP RELEASE */}
-          {/* <NavigationButton title="MAP" onPress={() => navigation.navigate('Map')} /> */}
+          <NavigationButton title="MAP" onPress={() => navigation.navigate('Map')} />
           <NavigationButton title="COUNTRIES" onPress={() => navigation.navigate('CountryStats')} />
           <>
             <LastUpdated date={lastUpdated} />

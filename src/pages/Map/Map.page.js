@@ -1,28 +1,22 @@
-import React, {Component} from 'react';
-import {ImageBackground, View, Text, TouchableOpacity} from 'react-native';
-import styles from './Map.style';
-// import propTypes from 'prop-types';
+// STARTED USING FUNCTIONS INSTEAD OF CLASS IN THIS PAGE
+import React from 'react';
+import { View } from 'react-native';
+import MapView from 'react-native-maps';
+import DarkMap from './CustommapStyle';
 
-class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <View style={{flex: 1, backgroundColor: 'grey'}}>
-        <Text>Map</Text>
-      </View>
-    );
-  }
+export default function Map() {
+  return (
+    <View style={{ flex: 1, backgroundColor: 'grey' }}>
+      <MapView
+        style={{ width: '100%', height: '50%', }}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        customMapStyle={DarkMap}
+      />
+    </View>
+  );
 }
-
-/* Prop Types */
-Map.propTypes = {
-
-};
-
-Map.defaultProps = {};
-
-export default Map;
