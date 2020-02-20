@@ -1,17 +1,14 @@
-
-
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 class Total extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
-    const { title, number } = this.props
+    const { title, number } = this.props;
     return (
       <>
         <View style={styles.mainContainer}>
@@ -31,17 +28,17 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     borderWidth: 1,
     borderColor: '#CDAE70',
-    borderRadius: 5
+    borderRadius: 5,
   },
   title: {
     color: 'orange',
     alignSelf: 'center',
-    fontSize: 24
+    fontSize: 24,
   },
   number: {
     color: '#CDAE70',
     alignSelf: 'center',
-    fontSize: 72
+    fontSize: 72,
   },
 });
 
