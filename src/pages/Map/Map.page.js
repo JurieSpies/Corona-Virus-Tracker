@@ -9,6 +9,7 @@ import Axios from 'axios';
 import CustomMapMarker from './CustomMapMarker';
 import LastUpdated from '../../components/LastUpdated/LastUpdated';
 import moment from 'moment';
+import { normalizeFont } from '../../helper';
 
 const Map = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,7 +43,7 @@ const Map = () => {
         title="Infection Map"
         refreshIcon
         backArrow
-        fontSize={32}
+        fontSize={24}
         refreshFunc={getQuery}
       />
       {isLoading && (
@@ -51,7 +52,10 @@ const Map = () => {
       {!isLoading && (
         <>
           <MapView
-            style={{ flex: 1 }}
+            cacheEnabled={true}
+            loadingEnabled={true}
+            loadingBackgroundColor='#000'
+            style={{ flex: 1, backgroundColor: 'black' }}
             mapType="standard"
             provider="google"
             zoomControlEnabled

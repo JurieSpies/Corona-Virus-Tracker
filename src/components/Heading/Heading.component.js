@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native';
-import Reload from '../../SVG/Reload'
-import BackArrow from '../../SVG/BackArrow'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import Reload from '../../SVG/Reload';
+import BackArrow from '../../SVG/BackArrow';
 import { withNavigation } from 'react-navigation';
 
 class HeadingText extends Component {
@@ -11,29 +11,34 @@ class HeadingText extends Component {
   }
 
   render() {
-    const { title, refreshIcon, backArrow, fontSize, navigation, refreshFunc } = this.props;
+    const {
+      title,
+      refreshIcon,
+      backArrow,
+      fontSize,
+      navigation,
+      refreshFunc,
+    } = this.props;
     return (
       <View style={styles.mainContainer}>
         <View style={styles.backarrowView}>
-          {backArrow &&
-            <TouchableOpacity onPress={() => navigation.goBack()} >
+          {backArrow && (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <BackArrow />
             </TouchableOpacity>
-          }
+          )}
         </View>
         <View style={styles.titleView}>
-          <Text style={[styles.title, { fontSize }]}>
-            {title}
-          </Text>
+          <Text style={[styles.title, { fontSize }]}>{title}</Text>
         </View>
         <View style={styles.refreshView}>
-          {refreshIcon &&
-            <TouchableOpacity onPress={refreshFunc} >
+          {refreshIcon && (
+            <TouchableOpacity onPress={refreshFunc}>
               <Reload />
             </TouchableOpacity>
-          }
+          )}
         </View>
-      </View >
+      </View>
     );
   }
 }
@@ -57,7 +62,9 @@ const styles = StyleSheet.create({
   },
   titleView: {
     flex: 5,
-    height: 80
+    height: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     color: '#CDAE70',
