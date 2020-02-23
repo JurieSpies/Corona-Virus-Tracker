@@ -1,4 +1,4 @@
-package com.corona;
+package com.keyboardninjas.coronavirus;
 
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;

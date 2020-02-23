@@ -1,4 +1,4 @@
-package com.corona;
+package com.keyboardninjas.coronavirus;
 
 import android.app.Application;
 import android.content.Context;
